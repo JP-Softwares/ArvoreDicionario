@@ -162,7 +162,7 @@ public class AVLTree {
                 System.out.print("├─");
                 indent += "│ ";
             }
-            System.out.println(node.key);
+            System.out.println(node.key.getLetra());
 
             printAVLTree(node.left, indent, false);
             printAVLTree(node.right, indent, true);

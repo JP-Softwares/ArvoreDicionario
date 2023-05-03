@@ -112,7 +112,7 @@ public class Lista {
 	}//fim do m�todo removeNoFim
 	
 
-	public Object removeFromPosicao(int posicao) throws EmptyListException {
+	public String removeFromPosicao(int posicao) throws EmptyListException {
             if (estaVazia()){
                 throw new EmptyListException(nome); //lan�a excess�o se List estiver vazia
             }
@@ -138,7 +138,7 @@ public class Lista {
                     }
                 }
 
-            return removedItem;
+            return removedItem + "";
 	}
         
         public Object removeFromValor(Object elemento) throws EmptyListException {
@@ -216,6 +216,9 @@ public class Lista {
 	
 	public String imprimeTamanho(){
 		return "Tamanho da Lista: "+this.tamanhoLista;
+	}
+        public int getTamanho(){
+		return this.tamanhoLista;
 	}
 
     public String getNome() {

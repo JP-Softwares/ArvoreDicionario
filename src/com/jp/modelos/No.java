@@ -15,6 +15,9 @@ public class No {
     private Lista lista = new Lista();
     
     private char letra = ' ';
+    
+    public No() {
+    }
 
     public No(char letra, Lista lista) {
         this.letra = letra;

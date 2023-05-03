@@ -5,9 +5,15 @@
 package com.jp.visao;
 
 import com.jp.modelos.Dicionario;
+import com.jp.modelos.Lista;
 import com.jp.modelos.TipoDeBusca;
 import com.jp.persistencia.DicionarioDao;
 import com.jp.persistencia.IDicionarioDao;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import javax.swing.ImageIcon;
 
 /**
@@ -25,6 +31,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         dicionarioDao = new DicionarioDao();
+        dicionarioDao.gerarVetor();
+        dicionarioDao.gerarArvore();
+        File dicionario[] = new File("./src/com/jp/dicionario").listFiles();
+        
     }
     
     public void setarIcone(boolean achou) {

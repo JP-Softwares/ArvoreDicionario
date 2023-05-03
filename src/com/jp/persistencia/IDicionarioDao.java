@@ -13,5 +13,10 @@ import com.jp.modelos.Dicionario;
 public interface IDicionarioDao {
     
     Dicionario buscar(TipoDeBusca tipoDeBusca, String palavra);
-    
+
+    public void gerarVetor();
+
+    public String[] getVetorzinho();
+
+    public void gerarArvore();
 }
