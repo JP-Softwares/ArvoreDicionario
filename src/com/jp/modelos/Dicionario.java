@@ -16,6 +16,7 @@ public class Dicionario {
     private static File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
 
     private String[] vetor = null;
+    private No no = null;
     private long tempoDeResposta_milisegundo = 0;
     private long tempoDeResposta_nanosegundo = 0;
     private boolean achou = false;
@@ -36,6 +37,12 @@ public class Dicionario {
     
     public Dicionario(String[] vetor, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo, boolean achou){
         this.vetor = vetor;
+        this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
+        this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
+        this.achou = achou;
+    }
+    
+    public Dicionario(long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo, boolean achou){
         this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
         this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
         this.achou = achou;
