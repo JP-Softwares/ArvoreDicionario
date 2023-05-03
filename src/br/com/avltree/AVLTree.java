@@ -4,7 +4,7 @@ import com.jp.modelos.*;
 public class AVLTree {
 	
 	public class Node {
-	    No key;
+	    public No key;
 	    int height;
 	    Node left;
 	    Node right;
@@ -22,8 +22,20 @@ public class AVLTree {
         return false;
     }
     
+    private boolean maiorQue(char primeiro, char segundo) {
+        if(Character.compare(primeiro, segundo) > 0) return true;
+        
+        return false;
+    }
+    
     private boolean menorQue(No primeiro, No segundo) {
         if(Character.compare(primeiro.getLetra(), segundo.getLetra()) < 0) return true;
+        
+        return false;
+    }
+    
+    private boolean menorQue(char primeiro, char segundo) {
+        if(Character.compare(primeiro, segundo) < 0) return true;
         
         return false;
     }
@@ -38,9 +50,23 @@ public class AVLTree {
         }
         return current;
     }
+    
+    public Node find(char letra) {
+        Node current = root;
+        while (current != null) {
+            if (current.key.getLetra() == letra) {
+               break;
+            }
+            current = menorQue(current.key.getLetra(), letra) ? current.right : current.left;
+        }
+        return current;
+    }
 
     public void insert(No key) {
+        if(root != null) System.out.println("Node key: " + root.key.getLetra());
+        System.out.println("Key: " + key.getLetra());
         root = insert(root, key);
+        System.out.println("raiz: " + root.key.getLetra());
     }
 
     public void delete(No key) {
@@ -56,7 +82,10 @@ public class AVLTree {
     }
 
     private Node insert(Node node, No key) {
+        if(node != null) System.out.println("Node key: " + node.key.getLetra() + ", Key: " + key.getLetra());
+        
         if (node == null) {
+            System.out.println(key.getLetra());
             return new Node(key);
         } else if (maiorQue(node.key, key)) {
             node.left = insert(node.left, key);

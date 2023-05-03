@@ -19,6 +19,14 @@ public class Busca {
         return false;
     }
     
+    public static boolean sequencialLista(Lista lista, String palavra){
+        for(int i = 0; i < lista.getTamanho(); i++){
+            if(lista.[i].equals(palavra)) return true;
+        }
+        
+        return false;
+    }
+    
     // String = {"oi", "eae", "uva", "fala", "bala"};
     
     public static boolean binaria(String vetor[], String palavra, int inicio, int fim){

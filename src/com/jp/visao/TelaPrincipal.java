@@ -31,9 +31,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         dicionarioDao = new DicionarioDao();
-        dicionarioDao.gerarVetor();
-        dicionarioDao.gerarArvore();
-        File dicionario[] = new File("./src/com/jp/dicionario").listFiles();
+        //dicionarioDao.gerarVetor();
+        //File dicionario[] = new File("./src/com/jp/dicionario").listFiles();
         
     }
     
