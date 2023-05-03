@@ -65,7 +65,7 @@ public class DicionarioDao implements IDicionarioDao{
                 //System.out.println(atual.getLetra());
                 arvore.insert(atual);
                 listaAtual = new Lista();
-                letra = vetor[i].charAt(0);
+                letra = normalizarChar(vetor[i].charAt(0));
             }
             listaAtual.insereNoFim(vetor[i]);
             
@@ -93,7 +93,7 @@ public class DicionarioDao implements IDicionarioDao{
                 gerarArvore();
                 Lista lista = arvore.find(palavra.charAt(0)).key.getLista();
                 try {
-                    dicionario.setAchou(lista.buscaElemento(lista));
+                    dicionario.setAchou(lista.buscaElemento(palavra));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

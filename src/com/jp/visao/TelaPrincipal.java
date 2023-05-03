@@ -33,7 +33,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dicionarioDao = new DicionarioDao();
         
         //dicionarioDao.gerarVetor();
-        File dicionario = new File("./src/com/jp/dicionario").listFiles()[0];
+        /*File dicionario = new File("./src/com/jp/dicionario").listFiles()[0];
         try {
             FileReader fr = new FileReader(dicionario);
             BufferedReader br = new BufferedReader(fr);
@@ -56,7 +56,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+        */
         
         
     }

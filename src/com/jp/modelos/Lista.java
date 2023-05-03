@@ -164,16 +164,16 @@ public class Lista {
         }
 	
 	
-	public boolean buscaElemento(Object elemento) throws EmptyListException {
+	public boolean buscaElemento(String elemento) throws EmptyListException {
 	    if (estaVazia()){
                 throw new EmptyListException(nome); //lan�a excess�o se List estiver vazia
             }
             
             ListaNo current = primeiroNo; 
-            while(current.data != elemento && current.proximoNo != null){
+            while(!current.data.equals(elemento) && current.proximoNo != null){
                 current = current.proximoNo;
             }
-            if(current.data == elemento) return true;
+            if(current.data.equals(elemento)) return true;
             
             return false;
 	}
