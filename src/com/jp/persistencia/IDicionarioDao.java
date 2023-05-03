@@ -12,6 +12,6 @@ import com.jp.modelos.Dicionario;
  */
 public interface IDicionarioDao {
     
-    Dicionario buscar(TipoDeBusca tipoDeBusca);
+    Dicionario buscar(TipoDeBusca tipoDeBusca, String palavra);
     
 }

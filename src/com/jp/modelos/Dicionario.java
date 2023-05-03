@@ -15,7 +15,7 @@ public class Dicionario {
     
     private static File dicionarios[] = new File("./src/com/jp/dicionario").listFiles();
 
-    private String[] vetor = null;
+    private String palavra = null;
     private No no = null;
     private long tempoDeResposta_milisegundo = 0;
     private long tempoDeResposta_nanosegundo = 0;
@@ -25,18 +25,18 @@ public class Dicionario {
         
     }
     
-    public Dicionario(String[] vetor){
-        this.vetor = vetor;
+    public Dicionario(String palavra){
+        this.palavra = palavra;
     }
     
-    public Dicionario(String[] vetor, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo){
-        this.vetor = vetor;
+    public Dicionario(String palavra, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo){
+        this.palavra = palavra;
         this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
         this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
     }
     
-    public Dicionario(String[] vetor, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo, boolean achou){
-        this.vetor = vetor;
+    public Dicionario(String palavra, long tempoDeResposta_milisegundo, long tempoDeResposta_nanosegundo, boolean achou){
+        this.palavra = palavra;
         this.tempoDeResposta_milisegundo = tempoDeResposta_milisegundo;
         this.tempoDeResposta_nanosegundo = tempoDeResposta_nanosegundo;
         this.achou = achou;
@@ -66,12 +66,12 @@ public class Dicionario {
 //        DicionarioDao.saidaTXT(saidaTxt, vetor);
 //    }
 
-    public String[] getVetor() {
-        return vetor;
+    public String getPalavra() {
+        return palavra;
     }
 
-    public void setVetor(String[] vetor) {
-        this.vetor = vetor;
+    public void setPalavra(String palavra) {
+        this.palavra = palavra;
     }
 
     public long getTempoDeResposta_milisegundo() {

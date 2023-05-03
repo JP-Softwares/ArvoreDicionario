@@ -213,7 +213,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonSequencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSequencialActionPerformed
         // TODO add your handling code here:
-        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.SEQUENCIAL); // Aqui o André deve devolver o dicionário contendo o tempo em milisegundos, em nanosegundos e se achou a palavra ou não
+        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.SEQUENCIAL, jTextFieldPalavra.getText()); // Aqui o André deve devolver o dicionário contendo o tempo em milisegundos, em nanosegundos e se achou a palavra ou não
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
         setarIcone(dicionario.isAchou());
@@ -222,7 +222,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonBinariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBinariaActionPerformed
         // TODO add your handling code here:
-        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.SEQUENCIAL);
+        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.BINARIA, jTextFieldPalavra.getText());
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
         setarIcone(dicionario.isAchou());
@@ -230,7 +230,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonArvoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArvoreActionPerformed
         // TODO add your handling code here:
-        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.SEQUENCIAL);
+        Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.ARVORE, jTextFieldPalavra.getText());
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
         setarIcone(dicionario.isAchou());

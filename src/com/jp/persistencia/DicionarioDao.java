@@ -7,16 +7,22 @@ package com.jp.persistencia;
 import com.jp.modelos.Dicionario;
 import com.jp.modelos.No;
 import com.jp.modelos.TipoDeBusca;
+import java.io.File;
 
 /**
  *
  * @author aluno
  */
 public class DicionarioDao implements IDicionarioDao{
+    
+    File dicionario = new File("./src/com/jp/dicionario/Portuguese(Brazilian).dic");
 
+    
+    
+    
     @Override
-    public Dicionario buscar(TipoDeBusca tipoDeBusca) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Dicionario buscar(TipoDeBusca tipoDeBusca, String palavra) {
+        
     }
     
 }
