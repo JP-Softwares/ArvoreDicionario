@@ -177,6 +177,22 @@ public class Lista {
             
             return false;
 	}
+        
+        public String buscaElementoPorPosicao(int index) throws EmptyListException {
+            if (estaVazia()){
+                throw new EmptyListException(nome); //lan�a excess�o se List estiver vazia
+            }
+            
+            ListaNo current = primeiroNo; 
+            int i;
+            for(i = 0; i < index && current.proximoNo != null; i++) {
+                current = current.proximoNo;
+            }
+            
+            if(i == index) return current.data.toString(); 
+            
+            return null;
+        }
 	
 	
 	// Determina se a lista estiver vazia

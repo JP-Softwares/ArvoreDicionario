@@ -31,8 +31,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         dicionarioDao = new DicionarioDao();
+        
         //dicionarioDao.gerarVetor();
-        //File dicionario[] = new File("./src/com/jp/dicionario").listFiles();
+        File dicionario = new File("./src/com/jp/dicionario").listFiles()[0];
+        try {
+            FileReader fr = new FileReader(dicionario);
+            BufferedReader br = new BufferedReader(fr);
+            
+            String linha = "";
+            Lista palavras = new Lista();
+            int i = 0;
+            while((linha = br.readLine()) != null){
+                palavras.insereNoFim(linha.substring(0, linha.length()-1));
+            }
+            br.close(); 
+            
+            FileWriter fw = new FileWriter(dicionario);
+            BufferedWriter bw = new BufferedWriter(fw);
+            while(!palavras.estaVazia()){
+                bw.write(palavras.removeNoInicio().toString() + "\n");
+            }
+            bw.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
         
     }
     
@@ -224,7 +249,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.SEQUENCIAL, jTextFieldPalavra.getText()); // Aqui o André deve devolver o dicionário contendo o tempo em milisegundos, em nanosegundos e se achou a palavra ou não
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
-        jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
+        jLabelNanosegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ns");
         setarIcone(dicionario.isAchou());
         
     }//GEN-LAST:event_jButtonSequencialActionPerformed
@@ -233,7 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.BINARIA, jTextFieldPalavra.getText());
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
-        jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
+        jLabelNanosegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ns");
         setarIcone(dicionario.isAchou());
     }//GEN-LAST:event_jButtonBinariaActionPerformed
 
@@ -241,7 +266,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Dicionario dicionario = dicionarioDao.buscar(TipoDeBusca.ARVORE, jTextFieldPalavra.getText());
         jLabelMilisegundos.setText(dicionario.getTempoDeResposta_milisegundo() + " ms");
-        jLabelMilisegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ms");
+        jLabelNanosegundos.setText(dicionario.getTempoDeResposta_nanosegundo()+ " ns");
         setarIcone(dicionario.isAchou());
     }//GEN-LAST:event_jButtonArvoreActionPerformed
 

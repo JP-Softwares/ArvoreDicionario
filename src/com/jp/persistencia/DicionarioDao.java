@@ -82,21 +82,28 @@ public class DicionarioDao implements IDicionarioDao{
             case SEQUENCIAL:
                 dicionario.setAchou(Busca.sequencial(vetor, palavra));
                 dicionario.setTempoDeResposta_milisegundo(System.currentTimeMillis() - milisegundos);
-                dicionario.setTempoDeResposta_milisegundo(System.nanoTime() - nanosegundos);
+                dicionario.setTempoDeResposta_nanosegundo(System.nanoTime() - nanosegundos);
                 break;
             case BINARIA:
-                dicionario.setAchou(Busca.binaria(vetor, palavra, 0, vetor.length-1));
+                dicionario.setAchou(Busca.binaria(Ordenacao.quickSort(vetor), palavra, 0, vetor.length-1));
                 dicionario.setTempoDeResposta_milisegundo(System.currentTimeMillis() - milisegundos);
-                dicionario.setTempoDeResposta_milisegundo(System.nanoTime() - nanosegundos);
+                dicionario.setTempoDeResposta_nanosegundo(System.nanoTime() - nanosegundos);
                 break;
             case ARVORE:
                 gerarArvore();
                 Lista lista = arvore.find(palavra.charAt(0)).key.getLista();
+                try {
+                    dicionario.setAchou(lista.buscaElemento(lista));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                dicionario.setTempoDeResposta_milisegundo(System.currentTimeMillis() - milisegundos);
+                dicionario.setTempoDeResposta_nanosegundo(System.nanoTime() - nanosegundos);
                 
                 //dicionario.setAchou();
                 break;
         }
-        return null;
+        return dicionario;
     }
     public String[] getVetorzinho(){
         return vetor;

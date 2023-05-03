@@ -13,15 +13,8 @@ public class Busca {
     
     public static boolean sequencial(String vetor[], String palavra){
         for(int i = 0; i < vetor.length; i++){
-            if(vetor[i].equals(palavra)) return true;
-        }
-        
-        return false;
-    }
-    
-    public static boolean sequencialLista(Lista lista, String palavra){
-        for(int i = 0; i < lista.getTamanho(); i++){
-            if(lista.[i].equals(palavra)) return true;
+            if(vetor[i].equals(palavra + " ")) return true;
+            System.out.println(vetor[i]);
         }
         
         return false;
